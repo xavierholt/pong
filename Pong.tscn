@@ -109,12 +109,38 @@ tracks/4/keys = {
 } ]
 }
 tracks/5/type = "method"
-tracks/5/path = NodePath("Game")
+tracks/5/path = NodePath("Audio")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
+"times": PoolRealArray( 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "F4" ],
+"method": "play"
+}, {
+"args": [ "G4" ],
+"method": "play"
+}, {
+"args": [ "A4" ],
+"method": "play"
+}, {
+"args": [ "B4" ],
+"method": "play"
+}, {
+"args": [ "C5" ],
+"method": "play"
+} ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("Game")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -276,6 +302,20 @@ tracks/10/keys = {
 "method": "launch"
 } ]
 }
+tracks/11/type = "method"
+tracks/11/path = NodePath("Audio")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "chord"
+} ]
+}
 
 [sub_resource type="Animation" id=5]
 
@@ -354,12 +394,38 @@ tracks/4/keys = {
 } ]
 }
 tracks/5/type = "method"
-tracks/5/path = NodePath("Game")
+tracks/5/path = NodePath("Audio")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
+"times": PoolRealArray( 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "F4" ],
+"method": "play"
+}, {
+"args": [ "G4" ],
+"method": "play"
+}, {
+"args": [ "A4" ],
+"method": "play"
+}, {
+"args": [ "B4" ],
+"method": "play"
+}, {
+"args": [ "C5" ],
+"method": "play"
+} ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("Game")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {

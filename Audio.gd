@@ -6,3 +6,7 @@ func note():
 
 func play(note):
 	get_node(note).play()
+
+func chord():
+	get_node("C4").play()
+	get_node("C5").play()
