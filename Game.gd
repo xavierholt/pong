@@ -32,9 +32,7 @@ func finish():
 	get_node("/root/Pong/Game").hide()
 	get_node("/root/Pong/Menu/Buttons").show()
 	get_node("/root/Pong/AnimationPlayer").play_backwards("Zoom")
-	
 	get_node("/root/Pong").remouse()
-	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func victory(animation):
 	get_node("Ball").stop()

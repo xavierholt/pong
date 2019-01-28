@@ -60,6 +60,7 @@ func _physics_process(delta):
 	
 	if position.length_squared() > 2000:
 		spin = 0.8 * spin
+		get_node("/root/Pong/Audio").note()
 		var hitter   = get_player(player)
 		var opponent = get_player(player ^ 1)
 		var angle    = atan2(position.y, position.x)

@@ -1,13 +1,13 @@
 extends CanvasLayer
 
-func offset_fit(screen, target):
-	var sr = screen.x / screen.y
-	var tr = target.x / target.y
-	if sr > tr:
-		pass
-	else:
-		pass
-	pass
+#func offset_fit(screen, target):
+#	var sr = screen.x / screen.y
+#	var tr = target.x / target.y
+#	if sr > tr:
+#		pass
+#	else:
+#		pass
+#	pass
 
 func scale_fit(screen, target):
 	var sr = screen.x / screen.y

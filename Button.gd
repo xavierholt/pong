@@ -16,4 +16,8 @@ func _draw():
 func _input(event):
 	if is_hovered() and event is InputEventMouseButton and not event.pressed:
 		action()
-        
+
+func _notification(what):
+	match what:
+		NOTIFICATION_MOUSE_ENTER:
+			get_node("/root/Pong/Audio/Shick").play()
