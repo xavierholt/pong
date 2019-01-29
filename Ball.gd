@@ -6,14 +6,13 @@ var shade    = Color(1, 0, 1, 0.1)
 var spin     = float(0.01)
 var velocity = Vector2(0, 0)
 var player   = 0
-var splash   = 0
+var splash
 
 # Position cache for trail effects:
 var positions = PoolVector2Array()
 
 func _ready():
-	#set_color(color)
-	#splash = preload("res://Splash.tscn")
+	splash = preload("res://Splash.tscn")
 	positions.resize(17)
 
 func launch():
@@ -80,10 +79,16 @@ func _physics_process(delta):
 			velocity *= 0.95
 			print("No pong?")
 		
+		var s = splash.instance()
+		s.position = Vector2(cos(angle), sin(angle)) * 100
+		s.rotate(angle)
+		get_parent().add_child(s)
+		s.emitting = true
+		
 		player = player ^ 1
 		set_color(opponent.color)
 		velocity = velocity.bounce(position.normalized())
-		velocity = velocity.rotated(randf() * 0.02 - 0.01)
+		velocity = velocity.rotated(randf() * 0.10 - 0.05)
 		translate(velocity)
 		add_position()
 
