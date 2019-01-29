@@ -6,14 +6,18 @@ var shade    = Color(1, 0, 1, 0.1)
 var spin     = float(0.01)
 var velocity = Vector2(0, 0)
 var player   = 0
-var splash
+var splashes
 
 # Position cache for trail effects:
 var positions = PoolVector2Array()
 
 func _ready():
-	splash = preload("res://Splash.tscn")
 	positions.resize(17)
+	splashes = [
+		preload("res://splash/Red.tscn"),
+		preload("res://splash/Blue.tscn"),
+		preload("res://splash/Black.tscn")
+	]
 
 func launch():
 	var a = randf() * TAU
@@ -25,6 +29,13 @@ func launch():
 		positions[i] = position
 	set_color(get_player(player).color)
 	show()
+
+func splash(angle, player):
+	var s = splashes[player].instance()
+	s.position = Vector2(cos(angle), sin(angle)) * 105
+	s.rotate(angle)
+	get_parent().add_child(s)
+	s.emitting = true
 
 func stop():
 	velocity = Vector2(0, 0)
@@ -58,10 +69,10 @@ func _physics_process(delta):
 	add_position()
 	
 	if position.length_squared() > 2000:
-		velocity *= 1.02
+		velocity *= 1.03
 		spin     *= 0.50
 		
-		get_node("/root/Pong/Audio").note()
+		var audio    = get_node("/root/Pong/Audio")
 		var hitter   = get_player(player)
 		var opponent = get_player(player ^ 1)
 		var angle    = atan2(position.y, position.x)
@@ -69,22 +80,18 @@ func _physics_process(delta):
 		
 		if hitter.hits(angle):
 			spin += 0.2 * hitter.v
-			print("Good pong!")
+			splash(angle, player)
+			audio.note()
 		elif opponent.hits(angle):
 			spin += 0.2 * opponent.v
+			splash(angle, player ^ 1)
+			audio.play("Risset")
 			score.score(player)
-			print("Bad pong.")
 		else:
+			splash(angle, 2)
+			audio.play("Risset")
 			score.score(player ^ 1)
 			velocity *= 0.95
-			print("No pong?")
-		
-		var s = splash.instance()
-		s.position = Vector2(cos(angle), sin(angle)) * 100
-		s.rotate(angle)
-		get_parent().add_child(s)
-		s.emitting = true
-		
 		player = player ^ 1
 		set_color(opponent.color)
 		velocity = velocity.bounce(position.normalized())

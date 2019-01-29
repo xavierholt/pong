@@ -11,7 +11,6 @@ func _draw():
 		var se = Vector2(0, h)
 		var sw = Vector2(w, h)
 		draw_line(se, sw, color, width, true)
-	#draw_line(Vector2(0, 0), Vector2(w, h), Color(1, 1, 1, 1))
 
 func _input(event):
 	if is_hovered() and event is InputEventMouseButton and not event.pressed:
@@ -20,4 +19,4 @@ func _input(event):
 func _notification(what):
 	match what:
 		NOTIFICATION_MOUSE_ENTER:
-			get_node("/root/Pong/Audio/Shick").play()
+			get_node("/root/Pong/Audio").note()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Window.gd" type="Script" id=1]
 [ext_resource path="res://PongButton.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://audio/B4.wav" type="AudioStream" id=17]
 [ext_resource path="res://audio/C5.wav" type="AudioStream" id=18]
 [ext_resource path="res://audio/Shick.wav" type="AudioStream" id=19]
+[ext_resource path="res://audio/Risset.wav" type="AudioStream" id=20]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -263,38 +264,12 @@ tracks/8/keys = {
 "values": [ true ]
 }
 tracks/9/type = "method"
-tracks/9/path = NodePath("Audio/Shick")
+tracks/9/path = NodePath("Game")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "play"
-}, {
-"args": [  ],
-"method": "play"
-}, {
-"args": [  ],
-"method": "play"
-}, {
-"args": [  ],
-"method": "play"
-}, {
-"args": [  ],
-"method": "play"
-} ]
-}
-tracks/10/type = "method"
-tracks/10/path = NodePath("Game")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -302,18 +277,30 @@ tracks/10/keys = {
 "method": "launch"
 } ]
 }
-tracks/11/type = "method"
-tracks/11/path = NodePath("Audio")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 2 ),
-"transitions": PoolRealArray( 1 ),
+tracks/10/type = "method"
+tracks/10/path = NodePath("Audio")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [  ],
-"method": "chord"
+"args": [ "G4" ],
+"method": "play"
+}, {
+"args": [ "F4" ],
+"method": "play"
+}, {
+"args": [ "E4" ],
+"method": "play"
+}, {
+"args": [ "D4" ],
+"method": "play"
+}, {
+"args": [ "C4" ],
+"method": "play"
 } ]
 }
 
@@ -688,7 +675,6 @@ color = Color( 1, 0, 1, 1 )
 
 [node name="Audio" type="Node" parent="." index="2"]
 
-editor/display_folded = true
 script = ExtResource( 10 )
 
 [node name="C4" type="AudioStreamPlayer" parent="Audio" index="0"]
@@ -768,6 +754,15 @@ bus = "Master"
 stream = ExtResource( 19 )
 volume_db = -6.0
 pitch_scale = 2.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Risset" type="AudioStreamPlayer" parent="Audio" index="9"]
+
+stream = ExtResource( 20 )
+volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"

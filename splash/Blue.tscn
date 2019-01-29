@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://splash/Blue.png" type="Texture" id=1]
+[ext_resource path="res://splash/Splash.gd" type="Script" id=2]
 
 [sub_resource type="ParticlesMaterial" id=1]
 
@@ -10,11 +11,11 @@ emission_shape = 0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
-spread = 60.0
+spread = 90.0
 flatness = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 50.0
-initial_velocity_random = 0.1
+initial_velocity_random = 1.0
 angular_velocity = 20.0
 angular_velocity_random = 1.0
 orbit_velocity = 0.0
@@ -28,9 +29,9 @@ tangential_accel_random = 0.0
 damping = 0.0
 damping_random = 0.0
 angle = 0.0
-angle_random = 0.0
-scale = 0.1
-scale_random = 0.1
+angle_random = 1.0
+scale = 0.3
+scale_random = 0.5
 color = Color( 0, 0, 1, 1 )
 hue_variation = 0.0
 hue_variation_random = 0.0
@@ -39,7 +40,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Angular Velocity", "Damping", "Gravity", "Initial Velocity", "Scale", "Spread", "Tangential Accel" ]
+_sections_unfolded = [ "Angle", "Color", "Damping", "Hue Variation", "Initial Velocity", "Scale", "Spread" ]
 
 [node name="Splash" type="Particles2D"]
 
@@ -61,6 +62,7 @@ texture = ExtResource( 1 )
 normal_map = null
 h_frames = 1
 v_frames = 1
+script = ExtResource( 2 )
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
 
 
