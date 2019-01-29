@@ -27,7 +27,8 @@ func setup():
 	y = start * TAU + w/2
 
 func hits(a):
-	return fposmod(y - a, TAU) < fposmod(x - a, TAU)
+	var pad = 0.05
+	return fposmod(y + pad - a, TAU) < fposmod(x - pad - a, TAU)
 
 func _ready():
 	colors.resize(4)
@@ -56,14 +57,15 @@ func _draw():
 	draw_polyline(arc, color, 6, true)
 
 func _physics_process(delta):
-	a = 0
 	if Input.is_action_pressed(caction):
-		a += 0.02
+		a += 0.004
 	if Input.is_action_pressed(waction):
-		a -= 0.02
-	v = v * 0.9 + a
+		a -= 0.004
 	
+	a = a * 0.8
+	v = v * 0.9 + a
 	w = 0.6 + 5 * abs(v)
+	
 	if v > 0:
 		x = fposmod(x + v, TAU)
 		y = x + w

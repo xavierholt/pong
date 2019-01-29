@@ -658,8 +658,6 @@ radius = 15.0
 
 [node name="Players" type="Node2D" parent="Game" index="1"]
 
-editor/display_folded = true
-
 [node name="Red" type="Node2D" parent="Game/Players" index="0"]
 
 material = SubResource( 1 )

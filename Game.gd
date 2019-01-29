@@ -5,14 +5,10 @@ var blue = 0
 
 func setup():
 	var score = get_node("Score")
-	for i in range(1, 5):
-		var r = score.get_child(4 - i)
-		r.color = Color8(192, 192, 192)
-		r.hide()
-		var b = score.get_child(4 + i)
-		b.color = Color8(192, 192, 192)
-		b.hide()
-	score.get_child(4).hide()
+	for i in range(9):
+		var n = score.get_child(i)
+		n.color = Color8(192, 192, 192)
+		n.hide()
 	red  = 0
 	blue = 0
 	
@@ -41,9 +37,12 @@ func victory(animation):
 func score(i):
 	var s = get_node("Score")
 	var c = Color(1, 0, 1)
-	var n
+	var n = s.get_child(4)
 	
-	if i == 0:
+	if n.color != c:
+		# Ignore the first point
+		pass
+	elif i == 0:
 		red += 1
 		c = c.linear_interpolate(Color(1, 0, 0), red / 4.0)
 		n = s.get_child(4 - red)

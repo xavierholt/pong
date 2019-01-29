@@ -18,8 +18,8 @@ func _ready():
 
 func launch():
 	var a = randf() * TAU
-	spin     = randf() * 0.06 - 0.03
-	velocity = Vector2(cos(a), sin(a))
+	spin     = randf() * 0.04 - 0.02
+	velocity = Vector2(cos(a), sin(a)) * 0.8
 	player   = randi() % 2
 	
 	for i in range(17):
@@ -59,7 +59,9 @@ func _physics_process(delta):
 	add_position()
 	
 	if position.length_squared() > 2000:
-		spin = 0.8 * spin
+		velocity *= 1.02
+		spin     *= 0.50
+		
 		get_node("/root/Pong/Audio").note()
 		var hitter   = get_player(player)
 		var opponent = get_player(player ^ 1)
@@ -75,11 +77,13 @@ func _physics_process(delta):
 			print("Bad pong.")
 		else:
 			score.score(player ^ 1)
+			velocity *= 0.95
 			print("No pong?")
 		
 		player = player ^ 1
 		set_color(opponent.color)
 		velocity = velocity.bounce(position.normalized())
+		velocity = velocity.rotated(randf() * 0.02 - 0.01)
 		translate(velocity)
 		add_position()
 
