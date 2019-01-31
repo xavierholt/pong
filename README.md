@@ -1,8 +1,6 @@
 # Pong
 
-## Overview
-
-This is a stylized version of [Pong][pong] built for the [Godot Engnine][godot].
+This is a stylized version of [Pong][pong], built for the [Godot Engine][godot].
 You play  in a circle.  My primary goal  was to make  everything  as simple  and
 smooth as possible.
 
@@ -37,7 +35,8 @@ In no particular order...
   left of the screen.  I often ended up just guessing until things worked.
 - Getting particle effects (the bounce splashes) to show up was hard - there are
   lots of simple errors that will prevent them from rendering.
-- Making decent-sounding sound effects was even harder!
+- Making decent-sounding sound effects was even harder!  I'm still not satisfied
+  with the current set.
 - The hardest part of playing the game  is remembering that  the controls aren't
   left and right,  but clockwise and widdershins.  This messed me up a lot while
   playtesting against myself.  Hopefully it's easier when you only have a single
