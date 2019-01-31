@@ -40,7 +40,7 @@ func score(i):
 	var n = s.get_child(4)
 	
 	if n.color != c:
-		# Ignore the first point
+		# The first point is special...
 		pass
 	elif i == 0:
 		red += 1
