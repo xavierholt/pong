@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Window.gd" type="Script" id=1]
 [ext_resource path="res://PongButton.gd" type="Script" id=2]
@@ -18,8 +18,7 @@
 [ext_resource path="res://audio/A4.wav" type="AudioStream" id=16]
 [ext_resource path="res://audio/B4.wav" type="AudioStream" id=17]
 [ext_resource path="res://audio/C5.wav" type="AudioStream" id=18]
-[ext_resource path="res://audio/Shick.wav" type="AudioStream" id=19]
-[ext_resource path="res://audio/Risset.wav" type="AudioStream" id=20]
+[ext_resource path="res://audio/Risset.wav" type="AudioStream" id=19]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -749,18 +748,9 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Shick" type="AudioStreamPlayer" parent="Audio" index="8"]
+[node name="Risset" type="AudioStreamPlayer" parent="Audio" index="8"]
 
 stream = ExtResource( 19 )
-volume_db = -6.0
-pitch_scale = 2.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="Risset" type="AudioStreamPlayer" parent="Audio" index="9"]
-
-stream = ExtResource( 20 )
 volume_db = 6.0
 pitch_scale = 1.0
 autoplay = false
